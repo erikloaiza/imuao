@@ -9,8 +9,7 @@ const config = {
     storageBucket: "imuao-administrador.appspot.com",
     messagingSenderId: "1000065554199"
   };
-  firebase.initializeApp(config);
-
+  
   class Firebase {
     constructor() {
       app.initializeApp(config);
