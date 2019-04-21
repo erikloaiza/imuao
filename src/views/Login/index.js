@@ -50,7 +50,7 @@ class Login extends Component{
     event.preventDefault(); //No reload page on Submit
 
     const { email, password } = this.state;
-    console.log(this.props)
+    console.log(email);
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
