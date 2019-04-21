@@ -1,14 +1,79 @@
 body {
-  margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Overpass', sans-serif;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--mainBackgroundColor);
+  color: var(--textColor2)
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.darkStyle{
+   --mainBackgroundColor: #2F363E;
+   --altBackgrounColor: #3C444C;
+   --alt2BackgroundColor: #353C44;
+
+   --primaryColor: #33E939;
+
+   --textColor1: #F7F7F7;
+   --textColor2: #B8B8B8;
+}
+
+.card{
+  background: var(--altBackgrounColor);
+  border-radius: 10px;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.5)
+}
+/*----------------------Input elements-------------------------*/
+.input{
+  border: 1px solid var(--textColor2);
+  padding: 0.4em 1em;
+  margin: 0.3em;
+  transition: 0.2s;
+}
+.input:focus-within{
+  border: 1.5px solid var(--primaryColor);
+  transform: translateY(-0.1em);
+}
+.input, .input input, .input input::placeholder{
+  background: none;
+  color:var(--textColor2);
+  outline: none;
+}
+.input input{
+  border:none;
+}
+.input-round{
+  border-radius: 10em;
+} 
+/*End of Input Elements*/
+
+/*----------------Text Elements----------------------------------*/
+.text1{
+  color:var(--textColor1);
+}
+.text2{
+  color:var(--textColor2);
+}
+a{
+  color: var(--primaryColor);
+}
+a:hover{
+  color: var(--primaryColor);
+}
+/*End of text elements*/
+
+/*--Custom Buttons: Reuses Bootstrap---*/
+.btn-primary-round{
+  font-size: 1.2rem;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background: var(--primaryColor);
+  color: white;
 }

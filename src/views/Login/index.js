@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import * as ROUTES from '../../constants/routes';
 import { withFirebase } from '../../components/Firebase';
 
+import './login.css'
+import { ReactComponent as Logo } from '../../assets/logo.svg';
+
 const INITIAL_STATE = {
   email: '',
   password: '',
@@ -21,27 +24,38 @@ class Login extends Component{
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <div className="h-100 d-flex justify-content-center align-items-center flex-column row overflow-hidden ml-md-5 mr-md-5">
+        <Logo/>
+            <form onSubmit={this.onSubmit} className="card col-lg-4 col-sm-6 d-flex flex-column justify-content-center align-items-center position-relative pb-4 pt-4">
+            {error && <p className="text1">{error.message}</p>}
+            <div className="input input-round w-75">
+              <input
+                  name="email"
+                  value={email}
+                  onChange={this.onChange}
+                  type="text"
+                  placeholder="Email Address"
+                />
+            </div>
+            <div className="input input-round w-75">
+              <input
+                name="password"
+                value={password}
+                onChange={this.onChange}
+                type="password"
+                placeholder="Password"
+              />
+              </div>
+              <br />
+              <span className="text1">Al ingresar usted acetpa nuestros</span>
+              <a href="#">terminos y condiciones</a>
+              <div className="submit-button position-absolute">
+                <button disabled={isInvalid} type="submit" className="btn btn-primary-round">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+        </div>
     );
   }
 
