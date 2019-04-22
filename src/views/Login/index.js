@@ -81,7 +81,7 @@ class Login extends Component{
     .doFetchData(DATAROUTES.PROFILES)
     .then(() => {
       console.log('Yai i got the data c:')
-      console.log(this.props.firebase.getData());
+      console.log(this.props.firebase.transformData());
     })
     .catch(error => {
       console.log('Naa i got an error :c')

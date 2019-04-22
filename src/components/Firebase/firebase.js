@@ -16,7 +16,13 @@ const config = {
       app.initializeApp(config);
       this.auth = app.auth();
       this.database = app.database();
+
+      /*data handlers*/
       this.data = '';
+
+      this.totalProfiles=0;
+      this.skillTags='';
+      this.lastViews='';
     }
       // *** Auth API ***
 
@@ -30,11 +36,43 @@ const config = {
     );
 
     /*Data management logic*/ 
-
-    getData(){
+    /*transformData is called after the data is retrieved by the server*/
+    transformData(){
+      this.setTotalProfiles();
+      this.setSkillsTags();
+      this.setLastViews(3);
       return this.data;
     }
 
+    /*Data Transformations*/
+    setTotalProfiles(){
+      this.totalProfiles = Object.keys(this.data).length;
+    }
+    setSkillsTags(){
+      console.log('setSkillsTags not finished yet: prom not implemented');
+      var skills = {}
+      for (var key in this.data) {
+        if (this.data.hasOwnProperty(key) & this.data[key].hasOwnProperty('skills')) { //We look for every skills in every profile
+          for (var skill in this.data[key].skills) {
+            skills[skill] = this.data[key].skills[skill]; //Then we concatenate those ones /Here we can do the prom/
+           }
+        }
+      }
+      this.skillTags= skills;
+    }
+    setLastViews(total){
+      console.log('Las views are retrieved randomically set by looking at data');
+      var ac = 0;
+      var views = {}
+      for (var key in this.data) {
+        views[key] = this.data[key];
+        ac++
+        if(ac>views)break;
+      }
+      this.lastViews = views;
+    }
+    /*End of Data Transformations*/
+    
   }
   
   export default Firebase;

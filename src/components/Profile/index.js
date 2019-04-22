@@ -6,7 +6,7 @@ class Profile extends Component{
     }
     render(){
         return(
-            <div className="col-3 p-2">
+            <div className="col-12 col-sm-6 col-lg-3 p-2">
                 <div className="profile d-flex align-items-center justify-content-center text-align-center flex-column py-4">
                     <img  className="profile-pic" src = "https://i1.sndcdn.com/artworks-000119323628-eyqu63-t500x500.jpg"/>
                     <h5 className="py-4">Of user</h5>
