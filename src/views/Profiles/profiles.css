@@ -1,4 +1,4 @@
-.user-group[groupName]::before{
+.user-group[groupname]::before{
     opacity: 0.2;
     content: attr(groupName);
     font-size: 2.2rem;

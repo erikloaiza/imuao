@@ -7,12 +7,15 @@ import './fullprofile.css'
 class FullProfile extends Component{
     constructor(props){
         super(props);
+        this.show = false;
     }
     render(){
         return(
             <div className="fullprofile fixed-bottom d-flex flex-column justify-content-center px-4">
                 <div className="card mx-5 position-relative p-5">
-                    <button className="btn btn-primary-round position-absolute m-n4">E</button>
+                    <button className="btn btn-round-alt position-fixed m-n4">
+                        <i className="fas fa-times"></i>
+                    </button>
                     <div className="row ml-5 mt-4">
                         <div className="col-9 text-right">
                             <h1>Nombre del Perfil</h1>
@@ -27,7 +30,7 @@ class FullProfile extends Component{
                             </div>
                         </div>
                         <div className="col-3 d-flex flex-column align-items-center">
-                            <span>foto</span>
+                            <img  className="profile-pic" src ="https://i1.sndcdn.com/artworks-000119323628-eyqu63-t500x500.jpg"/>
                             <span>cel</span>
                             <span>correo</span>
                         </div>

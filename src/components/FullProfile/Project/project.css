@@ -1,0 +1,6 @@
+.project p{
+    font-size: 0.9em;
+}
+.project span{
+    border-top: 1px solid var(--tagColor);
+}

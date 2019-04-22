@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import * as ROUTES from '../../constants/routes';
+import *  as DATAROUTES from '../../constants/firebaseConfig';
 import { withFirebase } from '../../components/Firebase';
 
 import './login.css'
@@ -29,6 +30,7 @@ class Login extends Component{
             <form onSubmit={this.onSubmit} className="card col-lg-4 col-sm-6 d-flex flex-column justify-content-center align-items-center position-relative pb-4 pt-4">
             {error && <p className="text1">{error.message}</p>}
             <div className="input input-round w-75">
+              <i className="far fa-envelope pr-2"></i>
               <input
                   name="email"
                   value={email}
@@ -38,6 +40,7 @@ class Login extends Component{
                 />
             </div>
             <div className="input input-round w-75">
+              <i className="far fa-meh-rolling-eyes pr-2"></i>
               <input
                 name="password"
                 value={password}
@@ -50,8 +53,8 @@ class Login extends Component{
               <span className="text1">Al ingresar usted acetpa nuestros</span>
               <a href="#">terminos y condiciones</a>
               <div className="submit-button position-absolute">
-                <button disabled={isInvalid} type="submit" className="btn btn-primary-round">
-                  <i class="fas fa-arrow-right"></i>
+                <button disabled={isInvalid} type="submit" className="btn btn-round-primary">
+                  <i className="fas fa-arrow-right"></i>
                 </button>
               </div>
             </form>
@@ -74,7 +77,16 @@ class Login extends Component{
       .catch(error => {
         this.setState({ error });
       });
-
+    this.props.firebase
+    .doFetchData(DATAROUTES.PROFILES)
+    .then(() => {
+      console.log('Yai i got the data c:')
+      console.log(this.props.firebase.getData());
+    })
+    .catch(error => {
+      console.log('Naa i got an error :c')
+      console.log(error)
+    });
   };
 
   onChange = event => {

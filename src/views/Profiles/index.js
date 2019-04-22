@@ -38,18 +38,18 @@ class Profiles extends Component{
                     placeholder="Buscar"
                     />
                 </div>
-                <button disabled={isInvalid} type="submit" className="btn btn-primary-round">
-                    <i class="fas fa-search"></i>
+                <button disabled={isInvalid} type="submit" className="btn btn-round-primary">
+                    <i className="fas fa-search"></i>
                 </button>
             </div>
-            <div className="user-group row pb-5" groupName='A'>
+            <div className="user-group row pb-5" groupname='A'>
               <Profile></Profile>
               <Profile></Profile>
               <Profile></Profile>
               <Profile></Profile>
               <Profile></Profile>
             </div>
-            <div className="user-group row pb-5" groupName='B'>
+            <div className="user-group row pb-5" groupname='B'>
               <Profile></Profile>
               <Profile></Profile>
               <Profile></Profile>
@@ -57,7 +57,7 @@ class Profiles extends Component{
               <Profile></Profile>
             </div>
             
-            <FullProfile></FullProfile>
+            {/*<FullProfile></FullProfile>*/}
         </div>
         );
     }

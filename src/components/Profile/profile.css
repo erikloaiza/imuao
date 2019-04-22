@@ -7,14 +7,22 @@
 .profile img, .profile .tag{
     box-shadow: 6px 3px 8px rgba(0, 0, 0, 0.6);
 }
-.profile img{
+.profile-pic{
     width: 10rem;
     height: 10rem;
-    border-radius: 50%
+    border-radius: 50%;
+    transition: 0.2s;
 }
 .tag{
     color: white;
     background-color: red;
     border-radius: 1em;
     text-align: center;
+}
+
+.profile:hover{
+    cursor: pointer;
+}
+.profile:hover .profile-pic{
+    transform: scale(1.1,1.1);
 }

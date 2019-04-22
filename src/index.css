@@ -13,6 +13,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+p{
+  word-wrap: break-word;
+}
 .darkStyle{
    --mainBackgroundColor: #2F363E;
    --altBackgrounColor: #3C444C;
@@ -36,6 +39,9 @@ code {
   margin: 0.3em;
   transition: 0.2s;
   border-radius: 0.5em;
+
+  display: flex;
+  align-items: center;
 }
 .input:focus-within{
   border: 1.5px solid var(--primaryColor);
@@ -69,12 +75,25 @@ a:hover{
 }
 /*End of text elements*/
 
-/*--Custom Buttons: Reuses Bootstrap---*/
-.btn-primary-round{
+/*-------------------------Custom Buttons: Reuses Bootstrap--------------------------------*/
+[class*="btn-round"]{
   font-size: 1.2rem;
   width: 3em;
   height: 3em;
   border-radius: 50%;
-  background: var(--primaryColor);
   color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+[class*="btn-round"]:hover{
+  cursor: pointer;
+}
+.btn-round-primary{
+  background: var(--primaryColor);
+}
+.btn-round-alt{
+  background: var(--textColor2);
+}
+/*End of Custom Buttons*/
