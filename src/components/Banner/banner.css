@@ -1,0 +1,36 @@
+.banner{
+    background: white;
+    height: 56px;
+    background: var(--alt2BackgroundColor);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+.drop-menu{
+    margin-top: 54px;
+    right:0;
+    z-index: -200;
+}
+.user-profile-pic{
+    height: 80%;
+    background: white;
+    border-radius: 50%;
+}
+.user-profile-pic img{
+    max-height: 100%;
+    border-radius: 50%;
+    transform: scale(0.9,0.9);
+}
+.banner ul{
+    display: flex;
+    align-items: center;
+}
+.banner li{
+    display: inline-block;
+    margin: auto 2em;
+}
+.banner a{
+    color: var(--textColor1)
+}
+.banner svg{
+    height: 50%;
+    width: auto;
+}

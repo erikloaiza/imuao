@@ -7,9 +7,10 @@ import Banner from '../../components/Banner'
 import Dashboard from '../Dashboard'
 import Profiles from '../Profiles'
 
+import './home.css'
 
 const Home = ({ match }) => (
-    <div>
+    <div className="home">
         <Banner />
         <hr />
         <Switch>
