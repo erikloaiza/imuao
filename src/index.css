@@ -35,6 +35,7 @@ code {
   padding: 0.4em 1em;
   margin: 0.3em;
   transition: 0.2s;
+  border-radius: 0.5em;
 }
 .input:focus-within{
   border: 1.5px solid var(--primaryColor);

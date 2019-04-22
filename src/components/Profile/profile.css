@@ -1,0 +1,20 @@
+.profile{
+    background: var(--alt2BackgroundColor);
+    box-shadow: inset 3px 6px 10px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--altBackgrounColor);
+    border-radius: 1em;
+}
+.profile img, .profile .tag{
+    box-shadow: 6px 3px 8px rgba(0, 0, 0, 0.6);
+}
+.profile img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%
+}
+.tag{
+    color: white;
+    background-color: red;
+    border-radius: 1em;
+    text-align: center;
+}

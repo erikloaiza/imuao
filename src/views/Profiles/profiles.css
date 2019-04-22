@@ -1,0 +1,9 @@
+.user-group[groupName]::before{
+    opacity: 0.2;
+    content: attr(groupName);
+    font-size: 2.2rem;
+    margin-left: -1.2em;
+    border-top: 1px solid;
+    display: inline-block;
+    width: 90vw;
+}
