@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Profile from '../../components/Profile'
+import FullProfile from '../../components/FullProfile'
 
 import './profiles.css'
 const INITIAL_STATE = {
@@ -55,6 +56,8 @@ class Profiles extends Component{
               <Profile></Profile>
               <Profile></Profile>
             </div>
+            
+            <FullProfile></FullProfile>
         </div>
         );
     }

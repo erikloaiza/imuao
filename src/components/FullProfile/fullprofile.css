@@ -1,0 +1,4 @@
+.fullprofile{
+    height: calc(100vh - 54px);
+    background: rgba(0, 0, 0, 0.6)
+}
