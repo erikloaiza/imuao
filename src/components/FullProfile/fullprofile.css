@@ -1,8 +1,18 @@
 .fullprofile{
     height: calc(100vh - 54px); 
-    background: rgba(0, 0, 0, 0.6)
+    background: rgba(0, 0, 0, 0.6);
+    transition: 0.2s;
 }
 .fullprofile > .card{
     max-height: 95%;
     overflow: auto;
+    transition: 0.4s;
+}
+.hiden{
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+}
+.hiden > .card{
+    transform: translateY(110%);
+    pointer-events: none;
 }

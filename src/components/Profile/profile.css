@@ -4,6 +4,9 @@
     border: 1px solid var(--altBackgrounColor);
     border-radius: 1em;
 }
+.profile h5{
+    word-wrap: break-word;
+}
 .profile img, .profile .tag{
     box-shadow: 6px 3px 8px rgba(0, 0, 0, 0.6);
 }
@@ -15,7 +18,7 @@
 }
 .tag{
     color: white;
-    background-color: red;
+    background-color: var(--primaryColor);
     border-radius: 1em;
     text-align: center;
 }

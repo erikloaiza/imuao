@@ -8,6 +8,7 @@ import './profiles.css'
 const INITIAL_STATE = {
     search:'',
     profiles:{},
+    selectedProfile:{}
   };
 
 class Profiles extends Component{
@@ -53,13 +54,13 @@ class Profiles extends Component{
                     var profile = profiles[key]
                     return (<div className="user-group row pb-5" groupname={key}>
                                 {Object.keys(profile).map((index)=>{
-                                    return  <Profile profile={profile[index]}></Profile>
+                                    return  <Profile profile={profile[index]} onClick={()=>this.viewProfile(profile[index])}></Profile>
                                 })}
                             </div>);
                 }
             })}
 
-            {/*<FullProfile></FullProfile>*/}
+            <FullProfile profile = {this.state.selectedProfile}></FullProfile>
         </div>
         );
     }
@@ -70,6 +71,11 @@ class Profiles extends Component{
     componentDidMount() {
         this.setState({
             profiles: this.props.firebase.getProfiles(),
+        });
+    }
+    viewProfile(profile){
+        this.setState({
+            selectedProfile: profile
         });
     }
 
