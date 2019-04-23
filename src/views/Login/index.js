@@ -67,7 +67,6 @@ class Login extends Component{
     event.preventDefault(); //No reload page on Submit
 
     const { email, password } = this.state;
-    console.log(email);
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
@@ -81,7 +80,7 @@ class Login extends Component{
     .doFetchData(DATAROUTES.PROFILES)
     .then(() => {
       console.log('Yai i got the data c:')
-      console.log(this.props.firebase.transformData());
+      this.props.firebase.transformData();
     })
     .catch(error => {
       console.log('Naa i got an error :c')

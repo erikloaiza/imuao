@@ -2,9 +2,12 @@ import React, {Component} from 'react'
 import Profile from '../../components/Profile'
 import FullProfile from '../../components/FullProfile'
 
+import { withFirebase } from './../../components/Firebase'
+
 import './profiles.css'
 const INITIAL_STATE = {
-    search:''
+    search:'',
+    profiles:{},
   };
 
 class Profiles extends Component{
@@ -16,6 +19,7 @@ class Profiles extends Component{
     render(){
         const { search } = this.state;
         const isInvalid = search === '' ;
+        const profiles = this.state.profiles;
 
         return(       
         <div className="px-5">
@@ -42,21 +46,19 @@ class Profiles extends Component{
                     <i className="fas fa-search"></i>
                 </button>
             </div>
-            <div className="user-group row pb-5" groupname='A'>
-              <Profile></Profile>
-              <Profile></Profile>
-              <Profile></Profile>
-              <Profile></Profile>
-              <Profile></Profile>
-            </div>
-            <div className="user-group row pb-5" groupname='B'>
-              <Profile></Profile>
-              <Profile></Profile>
-              <Profile></Profile>
-              <Profile></Profile>
-              <Profile></Profile>
-            </div>
-            
+
+            {Object.keys(profiles).map((key)=>{
+                var characterGroup = Object.keys(profiles[key]);
+                if(characterGroup.length>0){
+                    var profile = profiles[key]
+                    return (<div className="user-group row pb-5" groupname={key}>
+                                {Object.keys(profile).map((index)=>{
+                                    return  <Profile profile={profile[index]}></Profile>
+                                })}
+                            </div>);
+                }
+            })}
+
             {/*<FullProfile></FullProfile>*/}
         </div>
         );
@@ -65,6 +67,12 @@ class Profiles extends Component{
         this.setState({ [event.target.name]: event.target.value });
       };
 
+    componentDidMount() {
+        this.setState({
+            profiles: this.props.firebase.getProfiles(),
+        });
+    }
+
 }
 
-export default Profiles;
+export default withFirebase(Profiles);
