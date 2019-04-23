@@ -1,0 +1,24 @@
+.dashboard-item-name{
+    opacity: 0.6;
+}
+.dashboard .profile-pic{
+    width: 3em;
+    height: 3em;
+}
+.bar-graph .bar{
+    height: 2em;
+}
+.bar-graph .bar .bar-value{
+    width: var(--value);
+    background: var(--tagColor);
+}
+.bar-graph .bar span{
+    color: var(--textColor2)
+}
+.ppal-text{
+    font-size: 3.5em;
+    color: var(--primaryColor)
+}
+.profile-list-item{
+    border-bottom: 1px solid var(--textColor2)
+}

@@ -1,3 +1,6 @@
+.project{
+    transition: 0.3s;
+}
 .project p{
     font-size: 0.9em;
 }

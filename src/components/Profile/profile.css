@@ -18,7 +18,7 @@
 }
 .tag{
     color: white;
-    background-color: var(--primaryColor);
+    background-color: var(--tagColor);
     border-radius: 1em;
     text-align: center;
 }

@@ -55,7 +55,7 @@ const config = {
     /*transformData is called after the data is retrieved by the server*/
     transformData(){
       this.setTotalProfiles();
-      this.setSkillsTagsAndGroupedData();
+      this.setGroupedDataAndAcumulateSkills();
       this.setLastViews(3);
     }
 
@@ -63,7 +63,7 @@ const config = {
     setTotalProfiles(){
       this.totalProfiles = Object.keys(this.data).length;
     }
-    setSkillsTagsAndGroupedData(){
+    setGroupedDataAndAcumulateSkills(){
       console.log('setSkillsTags not finished yet: prom not implemented');
       
       var skills = {}
@@ -75,22 +75,32 @@ const config = {
           groupedData[firstCharacter][key] = this.data[key];
           if(this.data[key].hasOwnProperty('skills')){
             for (var skill in this.data[key].skills) {
-              skills[skill] = {prom:this.data[key].skills[skill],color:this.randomColor()}; //Then we concatenate those ones /Here we can do the prom/
+              skills[skill] = this.data[key].skills[skill]; //Then we accumulate to calculate the prom latter/
              }
           }
         }
       }
       this.profiles = groupedData;
       this.skillTags= skills;
+      this.setSkillsPromAndColors();
+    }
+    setSkillsPromAndColors(){
+      for (var key in this.skillTags){
+        if (this.skillTags.hasOwnProperty(key)) { //We look for every skills if exist
+          this.skillTags[key] = {prom:this.skillTags[key]/this.totalProfiles,color:this.randomColor()}; //Then we calculate the prom around all users and set the color/
+        }
+      }
     }
     setLastViews(total){
       console.log('Las views are retrieved randomically set by looking at data');
-      var ac = 0;
+      var ac = 1;
       var views = {}
-      for (var key in this.data) {
-        views[key] = this.data[key];
+      const shuffledArray = Object.keys(this.data).sort(() => Math.random() - 0.5);
+      for (var key in shuffledArray) {
+        console.log(shuffledArray[key])
+        views[shuffledArray[key]] = this.data[shuffledArray[key]];
         ac++
-        if(ac>views)break;
+        if(ac>total)break;
       }
       this.lastViews = views;
     }
@@ -98,7 +108,11 @@ const config = {
     
     /*Utilities*/
     randomColor(){
-      return '#'+Math.floor(Math.random()*16777215).toString(16);
+      //return '#'+Math.floor(Math.random()*16777215).toString(16);
+      var h = 1 + Math.random()*(1, 360);
+      var s = 100;
+      var l = 50;
+      return 'hsl(' + h + ',' + s + '%,' + l + '%)';
     }
     /*End of Utilites*/
   }

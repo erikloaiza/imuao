@@ -76,6 +76,10 @@ a:hover{
 /*End of text elements*/
 
 /*-------------------------Custom Buttons: Reuses Bootstrap--------------------------------*/
+.btn-primary-custom{
+  background: var(--primaryColor);
+  color: white !important; /*To trigger <a> button styles*/
+}
 [class*="btn-round"]{
   font-size: 1.2rem;
   width: 3em;

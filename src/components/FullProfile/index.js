@@ -26,9 +26,9 @@ class FullProfile extends Component{
                     <div className="row ml-5 mt-4">
                         <div className="col-9 text-right">
                             <h1>{profile.name+' '+profile.lastname}</h1>
-                            <h4>{profile.code}</h4>
+                            <h5>{profile.code}</h5>
                             <div className="row mt-3">{/* Iterate Here */}
-                            {Object.keys(profile.skills).map(( skill )=>{return <CircleGraph></CircleGraph>})}
+                            {Object.keys(profile.skills).map(( skill, index)=>{return index<6?<CircleGraph name={skill} value={profile.skills[skill]} getColor ={this.props.getColor}></CircleGraph>:''})}
                             </div>
                         </div>
                         <div className="col-3 d-flex flex-column align-items-center">
@@ -40,7 +40,7 @@ class FullProfile extends Component{
                     <div className="row ml-5 mt-4 pt-4">
                         <h2 className="col-12">Portfolio</h2>
                         <div className="row col-12">
-                            {Object.keys(profile.skills).map(( skill )=>{return <Project></Project>})}
+                            {Object.keys(profile.portfolio).map(( project )=>{return <Project project= {profile.portfolio[project]}></Project>})}
                         </div>
                     </div>
                 </div>

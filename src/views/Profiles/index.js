@@ -8,6 +8,7 @@ import './profiles.css'
 const INITIAL_STATE = {
     search:'',
     profiles:{},
+    skillsReference:{},
     selectedProfile:{}
   };
 
@@ -54,13 +55,17 @@ class Profiles extends Component{
                     var profile = profiles[key]
                     return (<div className="user-group row pb-5" groupname={key}>
                                 {Object.keys(profile).map((index)=>{
-                                    return  <Profile profile={profile[index]} onClick={()=>this.viewProfile(profile[index])}></Profile>
+                                    return  <Profile profile={profile[index]} 
+                                                     onClick={()=>this.viewProfile(profile[index])}
+                                                     getColor = {this.getColor}
+                                                     >
+                                            </Profile>
                                 })}
                             </div>);
                 }
             })}
 
-            <FullProfile profile = {this.state.selectedProfile}></FullProfile>
+            <FullProfile profile = {this.state.selectedProfile} getColor = {this.getColor}></FullProfile>
         </div>
         );
     }
@@ -71,12 +76,16 @@ class Profiles extends Component{
     componentDidMount() {
         this.setState({
             profiles: this.props.firebase.getProfiles(),
+            skillsReference: this.props.firebase.getSkillTags()
         });
     }
     viewProfile(profile){
         this.setState({
             selectedProfile: profile
         });
+    }
+    getColor=(skill) =>{
+        return this.state.skillsReference[skill].color;
     }
 
 }

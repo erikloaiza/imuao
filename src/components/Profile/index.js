@@ -13,7 +13,9 @@ class Profile extends Component{
                     <img  className="profile-pic" src = {profilePicUrl}/>
                     <h5 className="py-4 text-center w-75">{this.props.profile.name+' '+this.props.profile.lastname}</h5>
                     <div className="row w-75">
-                        {Object.keys(skills).map((skill,index)=>{return index<3?<span className="tag col mx-1 px-2 py-1">{skill.substring(0,5)}</span>:''})}
+                        {Object.keys(skills).map((skill,index)=>{return index<3?
+                        <span className="tag col mx-1 px-2 py-1" style={{'--tagColor':this.props.getColor(skill)}}>
+                        {skill.substring(0,5)}</span>:''})}
                     </div>
                 </div>
             </div>
